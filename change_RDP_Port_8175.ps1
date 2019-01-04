@@ -7,11 +7,14 @@
 # changes the RDP port from the default 3389 to custom 8175 
 # with access from only approved Remote Addresses
 #
-# Change RemoteAddress as needed, the IP here is just an example
-#
 
+# chane the port to anything you want
 $RDPPort = "8175"
-$remoteAddresses = "100.100.100.100"
+
+# to add multiple IP addresses, seperate with a comma. IPs and CIDR's need to be in quotes, these IPs
+# are just an example, please change them to something valid before testing
+$remoteAddresses = "100.100.100.100","101.101.1.0/25"
+
 
 
 # Edit the registry, change RDP Port, add a firewall rule to allow access from remote addresses only
