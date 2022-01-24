@@ -1,4 +1,6 @@
-
+## SUMMARY ---------------------------------------------------------------------
+# simple functions that print the number of logs (error or warning) in the last
+# 24 hours. Meant to be a simple metric to form a baseline of activity
 
 
 ## FUNCTIONS -------------------------------------------------------------------
