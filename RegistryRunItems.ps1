@@ -31,8 +31,18 @@ Function numberofRegistryRunEntries {
     $count
 }
 
+Function CheckForUnapprovedRegistryRunItems {
+    addtoarrayofRunEntries
+    foreach($item in $script:arrayofRunEntries){
+        if($ApprovedRegistryRunItems -contains $item){
+            Write-Output "$item`: Approved"}
+            else {Write-Output "$item`: NOT Approved"}
+    }
+}
+
 
 ## OUTPUT ----------------------------------------------------------------------
 
 getRegistryRunItems
 numberofRegistryRunEntries
+CheckForUnapprovedRegistryRunItems
