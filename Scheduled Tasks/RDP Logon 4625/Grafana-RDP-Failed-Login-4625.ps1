@@ -1,6 +1,6 @@
 ## :: SUMMARY ::
-## Monitors windows logs for event ID 4625 (Failed Logon), then executes this script that writes a
-## a log file on disk, and sends an Invoke-WebRequest to a influxdb server
+## Used with a Scheduled task that moitors logs for event ID 4625, then executes this script that 
+## writes a log file on disk, and sends an Invoke-WebRequest to a influxdb server
 
 
 # Ignore check on self-signed cert ----------------------------------------------
@@ -20,6 +20,8 @@ $UserIP = $id4625.properties[19].Value
 
 ## Send to Logfile ---------------------------------------------------------------------------------
 # Sample Log Line: Failed-Logon,Server=Server1 EventID=4625,Username="admin",UserIP="xx.xx.xx.xx",LogonType=3"
+# LogonType 3 = Network Logon. For more logon types see the link below.
+# See https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4625
 
 "Failed-Logon,Server=$computerName EventID=$EventID,Username=`"$Username`",UserIP=`"$UserIP`",LogonType=$LogonType" `
     | Out-File `
